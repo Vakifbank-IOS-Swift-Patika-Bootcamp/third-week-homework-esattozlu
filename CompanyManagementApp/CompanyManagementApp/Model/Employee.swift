@@ -25,4 +25,8 @@ class Employee {
         self.title          = title
         self.id             = id
     }
+    
+    static func calculateSalary(age: Int, title: EmployeeType) -> Double {
+        return ((Double(age) / 100.0) + 1.0) * title.rawValue * 12_000
+    }
 }

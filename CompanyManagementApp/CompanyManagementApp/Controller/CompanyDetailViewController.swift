@@ -15,21 +15,26 @@ class CompanyDetailViewController: UIViewController {
     @IBOutlet weak var budgetLabel: UILabel!
     @IBOutlet weak var employeeCountLabel: UILabel!
     @IBOutlet weak var totalSalariesLabel: UILabel!
+    @IBOutlet weak var incomeExpenseTextField: UITextField!
     var company: Company?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        configureLabels()
+        hideKeyboardWhenTappedAround()
+        moveViewWithKeyboard()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        reloadData()
+        navigationController?.navigationBar.isHidden = true
     }
     
     @IBAction func paySalariesButtonClicked(_ sender: Any) {
         guard let company = company else { return }
         company.paySalary(completion: { message in
             alert(titleInput: "Alert", messageInput: message)
-            budgetLabel.text = "\(company.budget)₺"
+            reloadData()
         })
     }
     
@@ -41,6 +46,36 @@ class CompanyDetailViewController: UIViewController {
         performSegue(withIdentifier: "toEmployeeList", sender: nil)
     }
     
+    @IBAction func addIncomeButtonClicked(_ sender: Any) {
+        guard let company = company,
+              let income = incomeExpenseTextField.text,
+              let incomeDouble = Double(income),
+              income != ""
+        else {
+            alert(titleInput: "Alert", messageInput: "Please make sure you enter a value. The value you enter must be numeric.")
+            return
+        }
+        company.addIncome(amount: incomeDouble)
+        reloadData()
+    }
+    
+    
+    @IBAction func addExpenseButtonClicked(_ sender: Any) {
+        guard let company = company,
+              let expense = incomeExpenseTextField.text,
+              let expenseDouble = Double(expense),
+              expense != ""
+        else {
+            alert(titleInput: "Alert", messageInput: "Please make sure you enter a value. The value you enter must be numeric.")
+            return
+        }
+        company.addExpense(amount: expenseDouble, completion: { error in
+            if let error = error {
+                alert(titleInput: "Alert", messageInput: error)
+            }
+        })
+        reloadData()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddNewEmployee" {
@@ -55,19 +90,16 @@ class CompanyDetailViewController: UIViewController {
     }
     
     
-    func configureLabels() {
+    func reloadData() {
         if let company = company {
             logoImageView.image = company.logo
             companyNameLabel.text = company.companyName
             establishmentYearLabel.text = "\(company.establishmentYear)"
-            budgetLabel.text = "\(company.budget)₺"
+            budgetLabel.text = "\(company.budget.formattedWithSeparator)₺"
             employeeCountLabel.text = "\(company.employees?.count ?? 0)"
-            totalSalariesLabel.text = "\(company.totalSalary)₺"
+            totalSalariesLabel.text = "\(company.totalSalary.formattedWithSeparator)₺"
         }
     }
-    
-    
-    
 }
 
 

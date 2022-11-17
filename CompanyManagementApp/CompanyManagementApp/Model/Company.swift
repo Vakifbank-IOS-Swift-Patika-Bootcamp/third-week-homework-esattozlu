@@ -13,7 +13,7 @@ protocol CompanyCreator { // Protocol ✅
     func hireEmployee(name: String, age: Int, maritalStatus: MaritalStatus, title: EmployeeType, employeeId: Int, completion: (Employee?, String?) -> ())
     func fireEmployee(employeeName name: String, employeeId id: Int)
     func addIncome(amount: Double)
-    func addExpense(amount: Double)
+    func addExpense(amount: Double, completion: (String?) -> ())
     func paySalary(completion: (String) -> ())
 }
 
@@ -25,8 +25,14 @@ class Company: CompanyCreator { // Protocol ✅
     var establishmentYear: Int
     var employees: [Employee]?  // Optional ✅
     var logo: UIImage?
-    var totalSalary: Double = 0
-    
+    var totalSalary: Double {
+        if let employees = employees, !employees.isEmpty{
+            var totalSalary = 0.0
+            employees.forEach{ totalSalary += $0.salary }
+            return totalSalary
+        }
+        return 0.0
+    }
     
     // Initializer'da employees array optional'dır. Default olarak nil tanımlanmıştır.
     init(companyName name: String, companyBudget budget: Double, establishmentYear year: Int, logo: UIImage?, employees: [Employee]? = nil) {
@@ -35,7 +41,7 @@ class Company: CompanyCreator { // Protocol ✅
         self.establishmentYear  = year
         self.employees          = employees
         self.logo               = logo
-        print("\(name) Company is created in \(year) with \(employees?.count ?? 0) employee(s) and the budget of \(budget)₺")
+        print("\(name) Company is created in \(year) with \(employees?.count ?? 0) employee(s) and the budget of \(budget.formattedWithSeparator)₺")
     }
     
     // Isim ve id ile çalışan çıkarma fonksiyonu
@@ -101,18 +107,18 @@ class Company: CompanyCreator { // Protocol ✅
     func addIncome(amount: Double) {
         let previousBudget  = budget
         budget             += amount
-        print("Income is added. Previos budget: \(previousBudget)₺, new budget: \(budget)₺")
+        print("Income is added. Previos budget: \(previousBudget.formattedWithSeparator)₺, new budget: \(budget.formattedWithSeparator)₺")
     }
     
     // gider eklemek için kullanılır
-    func addExpense(amount: Double) {
+    func addExpense(amount: Double, completion: (String?) -> ()) {
         // eğer budget'da yeterli para yoksa uyarı verir ve gider oluşmaz.
         if budget >= amount {
             let previousBudget  = budget
             budget             -= amount
-            print("Expense is added. Previos budget: \(previousBudget)₺, new budget: \(budget)₺")
+            print("Expense is added. Previos budget: \(previousBudget.formattedWithSeparator)₺, new budget: \(budget.formattedWithSeparator)₺")
         } else {
-            print("There is not enough money to pay expense. Please add income to budget case.")
+            completion("There is not enough money to pay expense. Please add income to budget case.")
         }
     }
     
@@ -135,13 +141,10 @@ class Company: CompanyCreator { // Protocol ✅
     
     func paySalary(completion: (String) -> () ) { // Closure ✅
         var message = String()
-        
         if let employees = employees, !employees.isEmpty{
-            employees.forEach{ totalSalary += $0.salary }
-
             if budget >= totalSalary {
                 budget -= totalSalary
-                message = "\(totalSalary)₺ employee salaries are paid. Remaining budget: \(budget)₺."
+                message = "\(totalSalary.formattedWithSeparator)₺ employee salaries are paid. Remaining budget: \(budget.formattedWithSeparator)₺."
                 completion(message)
             } else {
                 // eğer budget'da maaşlar için yeterli para yoksa uyarı verir ve gider oluşmaz.
