@@ -10,11 +10,11 @@ import UIKit
 
 // CompanyCreation işlemi yapacak class'larda uygulanması gereken fonksiyonlar
 protocol CompanyCreator { // Protocol ✅
-    func hireEmployee(name: String, age: Int, maritalStatus: MaritalStatus, title: EmployeeType, employeeId: Int)
+    func hireEmployee(name: String, age: Int, maritalStatus: MaritalStatus, title: EmployeeType, employeeId: Int, completion: (Employee?, String?) -> ())
     func fireEmployee(employeeName name: String, employeeId id: Int)
     func addIncome(amount: Double)
     func addExpense(amount: Double)
-    func paySalary(completion: ([Employee]) -> ())
+    func paySalary(completion: (String) -> ())
 }
 
 
@@ -67,7 +67,7 @@ class Company: CompanyCreator { // Protocol ✅
     }
     
     
-    func hireEmployee(name: String, age: Int, maritalStatus: MaritalStatus, title: EmployeeType, employeeId: Int) {
+    func hireEmployee(name: String, age: Int, maritalStatus: MaritalStatus, title: EmployeeType, employeeId: Int, completion: (Employee?, String?) -> ()) {
         let employee = Employee(name: name, age: age, maritalSatatus: maritalStatus, title: title, employeeId: employeeId)
         var idCheck = true
         
@@ -75,7 +75,8 @@ class Company: CompanyCreator { // Protocol ✅
             // Çalışan eklenirken, eklemek istenen id'ye sahip daha önce bir çalışan olup olmadığı kontrolü.
             employees.forEach{
                 if $0.id == employeeId {
-                    print("There is already an employee with id: \(employeeId). Please try another id.")
+                    let error = "There is already an employee with id: \(employeeId). Please try another id."
+                    completion(nil, error)
                     idCheck = false
                     return
                 }
@@ -84,10 +85,12 @@ class Company: CompanyCreator { // Protocol ✅
             guard idCheck else { return }
             
             employees.append(employee)
+            completion(employee, nil)
             self.employees = employees
         } else {
             var employees = [Employee]()
             employees.append(employee)
+            completion(employee, nil)
             self.employees = employees
         }
         
@@ -114,21 +117,40 @@ class Company: CompanyCreator { // Protocol ✅
     }
     
     
-    func paySalary(completion: ([Employee]) -> () = {_ in }) { // Closure ✅
+    func getEmployeeInfo(fromId id: Int, completion: (Employee?, String?) -> ()) {
+        if let employees = employees {
+            var selectedEmployee: Employee?
+            employees.forEach{
+                if $0.id == id {
+                    selectedEmployee = $0
+                    completion(selectedEmployee, nil)
+                }
+            }
+            if selectedEmployee == nil {
+                completion(nil, "There is no \(id) id employee.")
+            }
+        }
+    }
+    
+    
+    func paySalary(completion: (String) -> () ) { // Closure ✅
+        var message = String()
+        
         if let employees = employees, !employees.isEmpty{
             employees.forEach{ totalSalary += $0.salary }
-            
+
             if budget >= totalSalary {
                 budget -= totalSalary
-                print("\(totalSalary)₺ employee salaries are paid. Remaining budget: \(budget)₺.")
+                message = "\(totalSalary)₺ employee salaries are paid. Remaining budget: \(budget)₺."
+                completion(message)
             } else {
                 // eğer budget'da maaşlar için yeterli para yoksa uyarı verir ve gider oluşmaz.
-                print("There is not enough money to pay salaries. Please add income to budget case.")
+                message = "There is not enough money to pay salaries. Please add income to budget case."
+                completion(message)
             }
-            // maaş ödemesi sonrası hangi çalışana ne kadar maaş ödendi gibi bilgileri alabilmek için completion
-            completion(employees)
         } else {
-            print("There is no employee to pay salary.")
+            message = "There is no employee to pay salary."
+            completion(message)
         }
     }
 }

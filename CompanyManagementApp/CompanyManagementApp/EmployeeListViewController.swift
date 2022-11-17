@@ -10,6 +10,7 @@ import UIKit
 class EmployeeListViewController: UIViewController {
 
     @IBOutlet weak var employeeListTableView: UITableView!
+    var company: Company?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -26,14 +26,32 @@ class CompanyDetailViewController: UIViewController {
     }
     
     @IBAction func paySalariesButtonClicked(_ sender: Any) {
-        company?.paySalary(completion: { _ in
-            textFieldCheck        })
+        guard let company = company else { return }
+        company.paySalary(completion: { message in
+            alert(titleInput: "Alert", messageInput: message)
+            budgetLabel.text = "\(company.budget)₺"
+        })
     }
     
     @IBAction func addNewEmployeeButtonClicked(_ sender: Any) {
+        performSegue(withIdentifier: "toAddNewEmployee", sender: nil)
     }
     
     @IBAction func showEmployeeListButtonClicked(_ sender: Any) {
+        performSegue(withIdentifier: "toEmployeeList", sender: nil)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddNewEmployee" {
+            let employeeAddVC = segue.destination as? EmployeeAddViewController
+            employeeAddVC?.company = company
+        }
+        
+        if segue.identifier == "toEmployeeList" {
+            let employeeListVC = segue.destination as? EmployeeListViewController
+            employeeListVC?.company = company
+        }
     }
     
     
