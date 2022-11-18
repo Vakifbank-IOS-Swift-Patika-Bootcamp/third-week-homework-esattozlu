@@ -92,6 +92,8 @@ class EmployeeAddViewController: UIViewController {
             company?.hireEmployee(name: name, age: ageInt, maritalStatus: maritalStatusEnum, title: titleEnum, employeeId: idInt, completion: { _, error in
                 if let error = error {
                     alert(titleInput: "Alert", messageInput: error)
+                } else {
+                    navigationController?.popToRootViewController(animated: true)
                 }
             })
         } else {

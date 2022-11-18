@@ -11,6 +11,8 @@ class EmployeeListViewController: UIViewController {
 
     @IBOutlet weak var employeeListTableView: UITableView!
     var company: Company?
+    var employees = [Employee]()
+    var searchedEmployees = [Employee]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,19 +22,35 @@ class EmployeeListViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         
         employeeListTableView.register(UINib(nibName: "EmployeeListTableViewCell", bundle: nil), forCellReuseIdentifier: "employeeCell")
+        configureEmployeeSearchController()
+        
+        
+        if let employees = company?.employees {
+            self.employees = employees
+            searchedEmployees = self.employees
+        }
+        
     }
+    
+    func configureEmployeeSearchController() {
+        let employeeSearchController = UISearchController(searchResultsController: nil)
+        employeeSearchController.searchResultsUpdater = self
+        employeeSearchController.searchBar.placeholder = "Type an employee name to search."
+        navigationItem.searchController = employeeSearchController
+    }
+    
 }
 
 
 extension EmployeeListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return company?.employees?.count ?? 0
+        return searchedEmployees.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = employeeListTableView.dequeueReusableCell(withIdentifier: "employeeCell", for: indexPath) as? EmployeeListTableViewCell else { return UITableViewCell() }
-        guard let employee = company?.employees?[indexPath.row] else { return UITableViewCell() }
+        let employee = searchedEmployees[indexPath.row]
         cell.salaryLabel.text          = "\(employee.salary.formattedWithSeparator)₺"
         cell.ageLabel.text             = "\(employee.age)"
         cell.maritalStatusLabel.text   = "\(employee.maritalStatus)"
@@ -41,6 +59,15 @@ extension EmployeeListViewController: UITableViewDelegate, UITableViewDataSource
         cell.titleLabel.text           = "\(employee.title)"
         return cell
     }
-    
-    
+}
+
+extension EmployeeListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        searchedEmployees = employees.filter { $0.name.lowercased().contains(text.lowercased()) }
+        if text == "" {
+            searchedEmployees = employees
+        }
+        employeeListTableView.reloadData()
+    }
 }
