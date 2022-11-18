@@ -37,7 +37,6 @@ class CompanyAddViewController: UIViewController {
         } else {
             companyCreationAlert()
         }
-        
     }
     
     

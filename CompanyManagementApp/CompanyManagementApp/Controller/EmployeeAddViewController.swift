@@ -137,6 +137,4 @@ extension EmployeeAddViewController: UIPickerViewDelegate, UIPickerViewDataSourc
             titleTextField.resignFirstResponder()
         }
     }
-    
-    
 }
