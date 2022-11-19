@@ -90,7 +90,6 @@ class AddNewAnimalViewController: UIViewController {
         zoo?.getNewAnimal(animalBreed: selectedAnimal.animalBreed, waterConsumption: selectedAnimal.waterConsumption, sound: selectedAnimal.sound, keeper: selectedKeeper, count: countInt, image: selectedAnimal.image) { error in
             if let error = error {
                 alert(titleInput: "Alert", messageInput: error)
-                print("dsadasd")
             } else {
                 navigationController?.popViewController(animated: true)
             }
@@ -157,8 +156,10 @@ extension AddNewAnimalViewController: UIPickerViewDelegate, UIPickerViewDataSour
                 if $0.animalBreed == selectedAnimal?.animalBreed {
                     keeperTextField.text = $0.keeper?.name
                     keeperTextField.isEnabled = false
+                    selectedKeeper = $0.keeper
                 } else {
                     keeperTextField.isEnabled = true
+                    keeperTextField.text = ""
                 }
             }
             
