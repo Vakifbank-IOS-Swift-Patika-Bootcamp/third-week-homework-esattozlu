@@ -48,7 +48,7 @@ class AddNewKeeperViewController: UIViewController {
               let ageInt = Int(age)
         else {
             alert(titleInput: "Alert", messageInput: "Please make sure you fill in the blanks correctly.")
-            return
+            retur
         }
         
         zoo?.hireZooKeeper(keeper: .init(name: name, keeperId: idInt, age: ageInt), completion: { error in
