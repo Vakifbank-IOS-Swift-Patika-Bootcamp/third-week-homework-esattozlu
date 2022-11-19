@@ -32,13 +32,16 @@ class Animal {
     // Hayvan oluştuktan sonra belirtilen keeper a yetki verilir
     private func giveResponsibility() {
         guard let keeper = keeper else { return }
+        var isAnimalFound: Bool = false
         if var animals = keeper.animals {
-            animals.forEach{
-                if $0.animalBreed.lowercased() == animalBreed.lowercased() {
-                    return
-                } else {
-                    animals.append(self)
+            for animal in animals {
+                if animal.animalBreed.lowercased() == animalBreed.lowercased() {
+                    isAnimalFound = true
+                    break
                 }
+            }
+            if !isAnimalFound {
+                animals.append(self)
                 keeper.animals = animals
             }
         } else {

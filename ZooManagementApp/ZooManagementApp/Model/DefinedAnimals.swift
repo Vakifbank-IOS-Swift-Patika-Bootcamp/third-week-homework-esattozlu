@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Animals {
+struct DefinedAnimals {
     static var cat     = Animal(animalBreed: "Cat 🐈", waterConsumption: 100, sound: "catSound", image: UIImage(named: "cat"))
     static var dog     = Animal(animalBreed: "Dog 🐶", waterConsumption: 150, sound: "dogSound", image: UIImage(named: "dog"))
     static var bird    = Animal(animalBreed: "Bird 🦜", waterConsumption: 30, sound: "birdSound", image: UIImage(named: "bird"))

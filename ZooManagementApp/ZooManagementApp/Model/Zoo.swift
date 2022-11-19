@@ -105,10 +105,8 @@ class Zoo: ZooCreator {
         var message = ""
         var breedCheck = true
         
-        let animal = Animal(animalBreed: animalBreed, waterConsumption: waterConsumption, sound: sound, image: image, count: count, keeper: keeper)
-        
-        guard animal.waterConsumption * Double(animal.count) <= remainingLimit else {
-            message = "Remaining water limit of zoo is not enough to get \(count) \(animalBreed). Please increase the water limit at least \((animal.waterConsumption * Double(animal.count) - remainingLimit).formattedWithSeparator)."
+        guard waterConsumption * Double(count) <= remainingLimit else {
+            message = "Remaining water limit of zoo is not enough to get \(count) \(animalBreed). Please increase the water limit at least \((waterConsumption * Double(count) - remainingLimit).formattedWithSeparator)."
             completion(message)
             return
         }
@@ -118,7 +116,7 @@ class Zoo: ZooCreator {
             // Hayvan eklenirken, eklemek istenen türe ve tipe sahip daha önce bir hayvan olup olmadığı kontrolü.
             animals.forEach{
                 if $0.animalBreed.lowercased() == animalBreed.lowercased() {
-                    message = "There is already an animal with breed: \(animalBreed). Please call addToExisting function."
+                    message = "There is already an animal with breed: \(animalBreed). Please click Increase Animal Count button."
                     breedCheck = false
                     completion(message)
                     return
@@ -127,10 +125,12 @@ class Zoo: ZooCreator {
             // eğer eklenen aynı breed'e sahip hayvan varsa fonksiyonu devam ettirmemek için guard
             guard breedCheck else { return }
             
+            let animal = Animal(animalBreed: animalBreed, waterConsumption: waterConsumption, sound: sound, image: image, count: count, keeper: keeper)
             animals.append(animal)
             self.animals = animals
         } else {
             var animals = [Animal]()
+            let animal = Animal(animalBreed: animalBreed, waterConsumption: waterConsumption, sound: sound, image: image, count: count, keeper: keeper)
             animals.append(animal)
             self.animals = animals
         }
@@ -204,7 +204,7 @@ class Zoo: ZooCreator {
             }
         }
         if !animalFound {
-            message = "Breed: \(animalBreed) animal is not previosly defined. Please use getNewAnimal method."
+            message = "Breed: \(animalBreed) animal is not previosly defined. Please click Create Animal button."
             completion(message)
             animalFound = false
         }

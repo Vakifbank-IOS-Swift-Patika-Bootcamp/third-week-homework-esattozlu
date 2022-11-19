@@ -16,20 +16,24 @@
 		E811832A2927B1B1009C50FA /* ZooKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81183292927B1B1009C50FA /* ZooKeeper.swift */; };
 		E811832C2927B1C4009C50FA /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811832B2927B1C4009C50FA /* Animal.swift */; };
 		E811832E2927B1CB009C50FA /* Zoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811832D2927B1CB009C50FA /* Zoo.swift */; };
+		E8641DAB292947E20035AB1B /* dogSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8641DA6292947E20035AB1B /* dogSound.mp3 */; };
+		E8641DAC292947E20035AB1B /* birdSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8641DA7292947E20035AB1B /* birdSound.mp3 */; };
+		E8641DAD292947E20035AB1B /* lionSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8641DA8292947E20035AB1B /* lionSound.mp3 */; };
+		E8641DAE292947E20035AB1B /* catSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8641DA9292947E20035AB1B /* catSound.mp3 */; };
+		E8641DAF292947E20035AB1B /* pigSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8641DAA292947E20035AB1B /* pigSound.mp3 */; };
 		E86B45D42927F745005D10D6 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86B45D32927F745005D10D6 /* Extentions.swift */; };
 		E86B45D62927F7CC005D10D6 /* DefinedAnimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86B45D52927F7CC005D10D6 /* DefinedAnimals.swift */; };
-		E86B45DF2927FA4D005D10D6 /* lionSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = E86B45D72927FA4C005D10D6 /* lionSound.wav */; };
 		E86B45E02927FA4D005D10D6 /* monkeySound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E86B45D82927FA4C005D10D6 /* monkeySound.mp3 */; };
 		E86B45E12927FA4D005D10D6 /* snakeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E86B45D92927FA4C005D10D6 /* snakeSound.mp3 */; };
-		E86B45E22927FA4D005D10D6 /* catSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = E86B45DA2927FA4C005D10D6 /* catSound.wav */; };
-		E86B45E32927FA4D005D10D6 /* pigCount.wav in Resources */ = {isa = PBXBuildFile; fileRef = E86B45DB2927FA4C005D10D6 /* pigCount.wav */; };
-		E86B45E42927FA4D005D10D6 /* dogSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = E86B45DC2927FA4C005D10D6 /* dogSound.wav */; };
-		E86B45E52927FA4D005D10D6 /* birdSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = E86B45DD2927FA4C005D10D6 /* birdSound.wav */; };
 		E86B45E62927FA4D005D10D6 /* horseSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E86B45DE2927FA4D005D10D6 /* horseSound.mp3 */; };
 		E86B45EB29280B96005D10D6 /* ZooDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86B45EA29280B96005D10D6 /* ZooDetailsViewController.swift */; };
 		E86B45ED2928140B005D10D6 /* AddNewAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86B45EC2928140B005D10D6 /* AddNewAnimalViewController.swift */; };
 		E86B45EF29281422005D10D6 /* AddNewKeeperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86B45EE29281422005D10D6 /* AddNewKeeperViewController.swift */; };
 		E86B45F129281445005D10D6 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86B45F029281445005D10D6 /* ListViewController.swift */; };
+		E8CC01762928FE8D009B3CC4 /* AnimalsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CC01742928FE8D009B3CC4 /* AnimalsCell.swift */; };
+		E8CC01772928FE8D009B3CC4 /* AnimalsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8CC01752928FE8D009B3CC4 /* AnimalsCell.xib */; };
+		E8CC017A2928FE9B009B3CC4 /* KeepersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CC01782928FE9B009B3CC4 /* KeepersCell.swift */; };
+		E8CC017B2928FE9B009B3CC4 /* KeepersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8CC01792928FE9B009B3CC4 /* KeepersCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,20 +48,24 @@
 		E81183292927B1B1009C50FA /* ZooKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooKeeper.swift; sourceTree = "<group>"; };
 		E811832B2927B1C4009C50FA /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		E811832D2927B1CB009C50FA /* Zoo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zoo.swift; sourceTree = "<group>"; };
+		E8641DA6292947E20035AB1B /* dogSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dogSound.mp3; sourceTree = "<group>"; };
+		E8641DA7292947E20035AB1B /* birdSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = birdSound.mp3; sourceTree = "<group>"; };
+		E8641DA8292947E20035AB1B /* lionSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lionSound.mp3; sourceTree = "<group>"; };
+		E8641DA9292947E20035AB1B /* catSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = catSound.mp3; sourceTree = "<group>"; };
+		E8641DAA292947E20035AB1B /* pigSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pigSound.mp3; sourceTree = "<group>"; };
 		E86B45D32927F745005D10D6 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		E86B45D52927F7CC005D10D6 /* DefinedAnimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinedAnimals.swift; sourceTree = "<group>"; };
-		E86B45D72927FA4C005D10D6 /* lionSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lionSound.wav; sourceTree = "<group>"; };
 		E86B45D82927FA4C005D10D6 /* monkeySound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = monkeySound.mp3; sourceTree = "<group>"; };
 		E86B45D92927FA4C005D10D6 /* snakeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = snakeSound.mp3; sourceTree = "<group>"; };
-		E86B45DA2927FA4C005D10D6 /* catSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = catSound.wav; sourceTree = "<group>"; };
-		E86B45DB2927FA4C005D10D6 /* pigCount.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pigCount.wav; sourceTree = "<group>"; };
-		E86B45DC2927FA4C005D10D6 /* dogSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dogSound.wav; sourceTree = "<group>"; };
-		E86B45DD2927FA4C005D10D6 /* birdSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = birdSound.wav; sourceTree = "<group>"; };
 		E86B45DE2927FA4D005D10D6 /* horseSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = horseSound.mp3; sourceTree = "<group>"; };
 		E86B45EA29280B96005D10D6 /* ZooDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooDetailsViewController.swift; sourceTree = "<group>"; };
 		E86B45EC2928140B005D10D6 /* AddNewAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAnimalViewController.swift; sourceTree = "<group>"; };
 		E86B45EE29281422005D10D6 /* AddNewKeeperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewKeeperViewController.swift; sourceTree = "<group>"; };
 		E86B45F029281445005D10D6 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		E8CC01742928FE8D009B3CC4 /* AnimalsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsCell.swift; sourceTree = "<group>"; };
+		E8CC01752928FE8D009B3CC4 /* AnimalsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalsCell.xib; sourceTree = "<group>"; };
+		E8CC01782928FE9B009B3CC4 /* KeepersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepersCell.swift; sourceTree = "<group>"; };
+		E8CC01792928FE9B009B3CC4 /* KeepersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeepersCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,40 +98,76 @@
 		E81183122927B158009C50FA /* ZooManagementApp */ = {
 			isa = PBXGroup;
 			children = (
-				E86B45D32927F745005D10D6 /* Extentions.swift */,
-				E81183132927B158009C50FA /* AppDelegate.swift */,
-				E81183292927B1B1009C50FA /* ZooKeeper.swift */,
-				E86B45D52927F7CC005D10D6 /* DefinedAnimals.swift */,
-				E811832B2927B1C4009C50FA /* Animal.swift */,
-				E811832D2927B1CB009C50FA /* Zoo.swift */,
-				E81183152927B158009C50FA /* SceneDelegate.swift */,
+				E8641DB129295BD10035AB1B /* Helpers */,
+				E8641DB229295BE80035AB1B /* Model */,
+				E8641DB029295B980035AB1B /* ViewControllers */,
+				E8CC017C29290A5F009B3CC4 /* View */,
+				E86B45E72927FA62005D10D6 /* AnimalSounds */,
+				E811831E2927B159009C50FA /* LaunchScreen.storyboard */,
+				E81183212927B159009C50FA /* Info.plist */,
+				E811831C2927B159009C50FA /* Assets.xcassets */,
+			);
+			path = ZooManagementApp;
+			sourceTree = "<group>";
+		};
+		E8641DB029295B980035AB1B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E86B45F029281445005D10D6 /* ListViewController.swift */,
 				E81183172927B158009C50FA /* CreateZooViewController.swift */,
 				E86B45EA29280B96005D10D6 /* ZooDetailsViewController.swift */,
 				E86B45EC2928140B005D10D6 /* AddNewAnimalViewController.swift */,
 				E86B45EE29281422005D10D6 /* AddNewKeeperViewController.swift */,
-				E86B45F029281445005D10D6 /* ListViewController.swift */,
-				E81183192927B158009C50FA /* Main.storyboard */,
-				E811831E2927B159009C50FA /* LaunchScreen.storyboard */,
-				E81183212927B159009C50FA /* Info.plist */,
-				E811831C2927B159009C50FA /* Assets.xcassets */,
-				E86B45E72927FA62005D10D6 /* AnimalSounds */,
 			);
-			path = ZooManagementApp;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E8641DB129295BD10035AB1B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E86B45D32927F745005D10D6 /* Extentions.swift */,
+				E81183152927B158009C50FA /* SceneDelegate.swift */,
+				E81183132927B158009C50FA /* AppDelegate.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E8641DB229295BE80035AB1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E86B45D52927F7CC005D10D6 /* DefinedAnimals.swift */,
+				E811832B2927B1C4009C50FA /* Animal.swift */,
+				E81183292927B1B1009C50FA /* ZooKeeper.swift */,
+				E811832D2927B1CB009C50FA /* Zoo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E86B45E72927FA62005D10D6 /* AnimalSounds */ = {
 			isa = PBXGroup;
 			children = (
-				E86B45DA2927FA4C005D10D6 /* catSound.wav */,
-				E86B45DC2927FA4C005D10D6 /* dogSound.wav */,
 				E86B45DE2927FA4D005D10D6 /* horseSound.mp3 */,
-				E86B45D72927FA4C005D10D6 /* lionSound.wav */,
 				E86B45D82927FA4C005D10D6 /* monkeySound.mp3 */,
-				E86B45DB2927FA4C005D10D6 /* pigCount.wav */,
 				E86B45D92927FA4C005D10D6 /* snakeSound.mp3 */,
-				E86B45DD2927FA4C005D10D6 /* birdSound.wav */,
+				E8641DA7292947E20035AB1B /* birdSound.mp3 */,
+				E8641DA9292947E20035AB1B /* catSound.mp3 */,
+				E8641DA6292947E20035AB1B /* dogSound.mp3 */,
+				E8641DA8292947E20035AB1B /* lionSound.mp3 */,
+				E8641DAA292947E20035AB1B /* pigSound.mp3 */,
 			);
 			path = AnimalSounds;
+			sourceTree = "<group>";
+		};
+		E8CC017C29290A5F009B3CC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E8CC01792928FE9B009B3CC4 /* KeepersCell.xib */,
+				E8CC01752928FE8D009B3CC4 /* AnimalsCell.xib */,
+				E81183192927B158009C50FA /* Main.storyboard */,
+				E8CC01782928FE9B009B3CC4 /* KeepersCell.swift */,
+				E8CC01742928FE8D009B3CC4 /* AnimalsCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,17 +228,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E86B45E22927FA4D005D10D6 /* catSound.wav in Resources */,
-				E86B45E32927FA4D005D10D6 /* pigCount.wav in Resources */,
-				E86B45DF2927FA4D005D10D6 /* lionSound.wav in Resources */,
+				E8641DAF292947E20035AB1B /* pigSound.mp3 in Resources */,
+				E8CC017B2928FE9B009B3CC4 /* KeepersCell.xib in Resources */,
 				E81183202927B159009C50FA /* LaunchScreen.storyboard in Resources */,
 				E86B45E02927FA4D005D10D6 /* monkeySound.mp3 in Resources */,
-				E86B45E52927FA4D005D10D6 /* birdSound.wav in Resources */,
 				E86B45E62927FA4D005D10D6 /* horseSound.mp3 in Resources */,
 				E811831D2927B159009C50FA /* Assets.xcassets in Resources */,
-				E86B45E42927FA4D005D10D6 /* dogSound.wav in Resources */,
+				E8CC01772928FE8D009B3CC4 /* AnimalsCell.xib in Resources */,
+				E8641DAD292947E20035AB1B /* lionSound.mp3 in Resources */,
 				E811831B2927B158009C50FA /* Main.storyboard in Resources */,
 				E86B45E12927FA4D005D10D6 /* snakeSound.mp3 in Resources */,
+				E8641DAB292947E20035AB1B /* dogSound.mp3 in Resources */,
+				E8641DAC292947E20035AB1B /* birdSound.mp3 in Resources */,
+				E8641DAE292947E20035AB1B /* catSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,9 +256,11 @@
 				E86B45F129281445005D10D6 /* ListViewController.swift in Sources */,
 				E81183142927B158009C50FA /* AppDelegate.swift in Sources */,
 				E86B45ED2928140B005D10D6 /* AddNewAnimalViewController.swift in Sources */,
+				E8CC017A2928FE9B009B3CC4 /* KeepersCell.swift in Sources */,
 				E811832E2927B1CB009C50FA /* Zoo.swift in Sources */,
 				E811832A2927B1B1009C50FA /* ZooKeeper.swift in Sources */,
 				E81183162927B158009C50FA /* SceneDelegate.swift in Sources */,
+				E8CC01762928FE8D009B3CC4 /* AnimalsCell.swift in Sources */,
 				E811832C2927B1C4009C50FA /* Animal.swift in Sources */,
 				E86B45D62927F7CC005D10D6 /* DefinedAnimals.swift in Sources */,
 				E86B45D42927F745005D10D6 /* Extentions.swift in Sources */,

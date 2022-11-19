@@ -16,6 +16,7 @@ class ZooDetailsViewController: UIViewController {
     @IBOutlet weak var employeeCountLabel: UILabel!
     @IBOutlet weak var totalSalariesLabel: UILabel!
     @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var remaininLimitTextField: UILabel!
     var zoo: Zoo?
     
     override func viewDidLoad() {
@@ -149,6 +150,7 @@ class ZooDetailsViewController: UIViewController {
             budgetLabel.text = "\(zoo.budget.formattedWithSeparator)₺"
             employeeCountLabel.text = "\(zoo.keepers?.count ?? 0)"
             totalSalariesLabel.text = "\(zoo.totalSalary.formattedWithSeparator)₺"
+            remaininLimitTextField.text = "\(zoo.remainingLimit.formattedWithSeparator)"
         }
     }
 }

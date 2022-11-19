@@ -18,7 +18,7 @@ class AddNewAnimalViewController: UIViewController {
     @IBOutlet weak var increaseCountButton: UIButton!
     var selectedAnimal: Animal?
     var selectedKeeper: ZooKeeper?
-    var animalArray = Animals.animalArray
+    var animalArray = DefinedAnimals.animalArray
     
     var keeperArray: [ZooKeeper] {
         if let zoo = zoo {
@@ -57,6 +57,8 @@ class AddNewAnimalViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         navigationController?.navigationBar.isHidden = false
         waterConsumptionTextField.isEnabled = false
+        animalBreedTextField.delegate = self
+        keeperTextField.delegate = self
     }
     
     func configurePickers() {
@@ -69,6 +71,8 @@ class AddNewAnimalViewController: UIViewController {
     func configureTextFields() {
         animalBreedTextField.inputView = animalBreedPickerView
         keeperTextField.inputView = keeperPickerView
+        animalBreedTextField.tintColor = .clear
+        keeperTextField.tintColor = .clear
     }
     
     @IBAction func createAnimalButtonClicked(_ sender: Any) {
@@ -137,6 +141,9 @@ extension AddNewAnimalViewController: UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if row == 1 && animalBreedTextField.text!.count == 0 {
+            
+        }
         if pickerView.tag == 0 {
             return animalArray[row].animalBreed
         } else {
@@ -148,25 +155,45 @@ extension AddNewAnimalViewController: UIPickerViewDelegate, UIPickerViewDataSour
         
         if pickerView.tag == 0 {
             animalBreedTextField.text = animalArray[row].animalBreed
-            animalBreedTextField.resignFirstResponder()
             waterConsumptionTextField.text = String(animalArray[row].waterConsumption.formattedWithSeparator)
             selectedAnimal = animalArray[row]
             
-            animalsInZoo.forEach{
-                if $0.animalBreed == selectedAnimal?.animalBreed {
-                    keeperTextField.text = $0.keeper?.name
-                    keeperTextField.isEnabled = false
-                    selectedKeeper = $0.keeper
-                } else {
-                    keeperTextField.isEnabled = true
-                    keeperTextField.text = ""
-                }
-            }
+            configureAnimalPicker()
             
         } else {
             keeperTextField.text = keeperArray[row].name
-            keeperTextField.resignFirstResponder()
             selectedKeeper = keeperArray[row]
+        }
+    }
+    
+    func configureAnimalPicker() {
+        for animal in animalsInZoo {
+            if animal.animalBreed == selectedAnimal?.animalBreed {
+                keeperTextField.text = animal.keeper?.name
+                keeperTextField.isEnabled = false
+                selectedKeeper = animal.keeper
+                return
+            } else {
+                keeperTextField.isEnabled = true
+                keeperTextField.text = ""
+            }
+        }
+    }
+}
+
+
+extension AddNewAnimalViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == animalBreedTextField {
+            animalBreedTextField.text = animalArray[0].animalBreed
+            waterConsumptionTextField.text = String(animalArray[0].waterConsumption.formattedWithSeparator)
+            selectedAnimal = animalArray[0]
+            configureAnimalPicker()
+            print("hello")
+        } else if textField == keeperTextField {
+            keeperTextField.text = keeperArray[0].name
+            selectedKeeper = keeperArray[0]
         }
     }
 }
