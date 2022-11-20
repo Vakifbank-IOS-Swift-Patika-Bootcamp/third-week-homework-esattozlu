@@ -180,7 +180,7 @@ class Zoo: ZooCreator {
         var message = ""
         
         guard let animals = animals else {
-            message = "There is no animal in the zoo. Please use Increase Animal Count button."
+            message = "There is no animal in the zoo. Please use Create Animal button."
             completion(message)
             return
         }

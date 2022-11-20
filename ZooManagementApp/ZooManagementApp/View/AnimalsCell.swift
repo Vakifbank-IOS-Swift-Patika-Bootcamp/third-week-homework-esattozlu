@@ -44,7 +44,6 @@ class AnimalsCell: UITableViewCell {
     }
     
     @IBAction func speakerButtonClicked(_ sender: Any) {
-        print("button clicked")
         guard let animal = animal else { return }
         guard let audioPath = Bundle.main.path(forResource: animal.sound, ofType: "mp3") else { return }
         

@@ -161,9 +161,9 @@
 		E8CC017C29290A5F009B3CC4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E81183192927B158009C50FA /* Main.storyboard */,
 				E8CC01792928FE9B009B3CC4 /* KeepersCell.xib */,
 				E8CC01752928FE8D009B3CC4 /* AnimalsCell.xib */,
-				E81183192927B158009C50FA /* Main.storyboard */,
 				E8CC01782928FE9B009B3CC4 /* KeepersCell.swift */,
 				E8CC01742928FE8D009B3CC4 /* AnimalsCell.swift */,
 			);
