@@ -26,7 +26,7 @@ class NetworkManager {
         }
     }
     
-    class func taskForGETRequest<ResponseType: Decodable>(url: URL, responsetType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionDataTask {
+    class func taskForGETRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionDataTask {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else {
                 DispatchQueue.main.async {
@@ -51,7 +51,7 @@ class NetworkManager {
     }
     
     class func getRandomQuotes(completion: @escaping (RandomModel?, Error?) -> Void) {
-        taskForGETRequest(url: Endpoints.random.url, responsetType: RandomModel.self) { response, error in
+        taskForGETRequest(url: Endpoints.random.url, responseType: RandomModel.self) { response, error in
             if let response = response {
                 completion(response, nil)
             } else {
